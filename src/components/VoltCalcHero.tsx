@@ -89,7 +89,7 @@ export const VoltCalcHero: React.FC = () => {
         {/* Primary CTA Button */}
         <motion.button
           onClick={scrollToCalculator}
-          className="relative group inline-flex items-center px-8 lg:px-12 py-4 lg:py-5 rounded-full font-bold text-lg uppercase tracking-wider overflow-hidden shadow-2xl mb-16"
+          className="relative group inline-flex items-center px-8 lg:px-12 py-4 lg:py-5 rounded-full font-bold text-lg uppercase tracking-wider overflow-hidden shadow-2xl mb-12"
           variants={itemVariants}
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -122,6 +122,30 @@ export const VoltCalcHero: React.FC = () => {
             />
           </motion.svg>
         </motion.button>
+
+        {/* Sector Navigation Links */}
+        <motion.div
+          className="flex flex-wrap justify-center gap-3 mb-16"
+          variants={itemVariants}
+        >
+          <span className="text-gray-500 text-sm self-center mr-4">
+            View tailored solutions:
+          </span>
+          {[
+            { name: "Residential", href: "/voltcalc/residential" },
+            { name: "Commercial", href: "/voltcalc/commercial" },
+            { name: "Agricultural", href: "/voltcalc/agricultural" },
+            { name: "Industrial", href: "/voltcalc/industrial" },
+          ].map((sector, idx) => (
+            <a
+              key={idx}
+              href={sector.href}
+              className="px-4 py-2 rounded-full text-sm font-semibold border border-white/20 text-gray-300 hover:border-[#00b300]/50 hover:text-[#00b300] hover:bg-white/5 transition-all duration-300"
+            >
+              {sector.name}
+            </a>
+          ))}
+        </motion.div>
 
         {/* Performance Trust Badges */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

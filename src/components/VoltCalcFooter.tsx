@@ -15,22 +15,22 @@ export const VoltCalcFooter: React.FC = () => {
 
   const navigation = {
     products: [
-      { name: "Solar Calculator", href: "#" },
-      { name: "System Simulator", href: "#" },
-      { name: "ROI Projections", href: "#" },
-      { name: "Mobile App", href: "#" },
+      { name: "Solar Calculator", href: "/#voltcalc-dashboard" },
+      // { name: "System Simulator", href: "/#voltcalc-dashboard" },
+      // { name: "ROI Projections", href: "/#voltcalc-dashboard" },
+      // { name: "Mobile App", href: "#" },
     ],
     solutions: [
-      { name: "Residential", href: "#" },
-      { name: "Commercial", href: "#" },
-      { name: "Agricultural", href: "#" },
-      { name: "Industrial", href: "#" },
+      { name: "Residential", href: "/voltcalc/residential" },
+      { name: "Commercial", href: "/voltcalc/commercial" },
+      { name: "Agricultural", href: "/voltcalc/agricultural" },
+      { name: "Industrial", href: "/voltcalc/industrial" },
     ],
     resources: [
-      { name: "Technical Case Studies", href: "#" },
+      // { name: "Technical Case Studies", href: "#" },
       { name: "Installation Guides", href: "#" },
       { name: "Tariff Insights", href: "#" },
-      { name: "Blog", href: "#" },
+      // { name: "Blog", href: "#" },
     ],
   };
 
@@ -246,12 +246,6 @@ export const VoltCalcFooter: React.FC = () => {
                 className="hover:text-[#00b300] transition-colors duration-200"
               >
                 Terms of Service
-              </a>
-              <a
-                href="#"
-                className="hover:text-[#00b300] transition-colors duration-200"
-              >
-                Cookie Settings
               </a>
             </div>
           </motion.div>
