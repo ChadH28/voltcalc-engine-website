@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 // ============================================================================
@@ -18,6 +19,7 @@ export const VoltCalcFeatures: React.FC = () => {
       id: 1,
       title: "Precision Sizing Array",
       icon: "layers",
+      link: "/learn/sizing-array",
       description:
         "Dynamically maps energy bills into precise kWP requirements, eliminating over-indexing and bloated quotes.",
     },
@@ -25,6 +27,7 @@ export const VoltCalcFeatures: React.FC = () => {
       id: 2,
       title: "Compounded Tariff Forecasting",
       icon: "chart",
+      link: "/learn/tariff-forecasting",
       description:
         "Models a 10-year break-even matrix factoring in historical and projected Eskom/municipal price escalations.",
     },
@@ -32,6 +35,7 @@ export const VoltCalcFeatures: React.FC = () => {
       id: 3,
       title: "Battery Autonomy Simulation",
       icon: "lightning",
+      link: "/learn/battery-autonomy",
       description:
         "Calculates real-world discharge cycles based on targeted loadshedding stage protections.",
     },
@@ -39,6 +43,7 @@ export const VoltCalcFeatures: React.FC = () => {
       id: 4,
       title: "Programmatic Spec Delivery",
       icon: "document",
+      link: "/learn/spec-delivery",
       description:
         "Compiles full systems architecture specs immediately into a clean, optimized client-side schema ready for local installers.",
     },
@@ -177,34 +182,35 @@ export const VoltCalcFeatures: React.FC = () => {
           viewport={{ once: true }}
         >
           {features.map((feature) => (
-            <motion.div
-              key={feature.id}
-              className="group p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-md border border-white/10 hover:border-[#00b300]/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer"
-              variants={cardVariants}
-              whileHover={{ borderColor: "rgba(0, 179, 0, 0.5)" }}
-            >
-              {/* Icon Container */}
-              <div className="mb-6 inline-flex p-4 rounded-xl bg-gradient-to-br from-[#2b59c3]/20 to-[#00b300]/20 text-[#00b300] group-hover:from-[#2b59c3]/40 group-hover:to-[#00b300]/40 transition-all duration-300">
-                {Icons[feature.icon as keyof typeof Icons]}
-              </div>
+            <Link key={feature.id} href={feature.link} className="group">
+              <motion.div
+                className="p-8 rounded-2xl bg-gradient-to-br from-white/5 to-white/[0.02] backdrop-blur-md border border-white/10 hover:border-[#00b300]/50 transition-all duration-300 hover:-translate-y-2 cursor-pointer h-full"
+                variants={cardVariants}
+                whileHover={{ borderColor: "rgba(0, 179, 0, 0.5)" }}
+              >
+                {/* Icon Container */}
+                <div className="mb-6 inline-flex p-4 rounded-xl bg-gradient-to-br from-[#2b59c3]/20 to-[#00b300]/20 text-[#00b300] group-hover:from-[#2b59c3]/40 group-hover:to-[#00b300]/40 transition-all duration-300">
+                  {Icons[feature.icon as keyof typeof Icons]}
+                </div>
 
-              {/* Card Title */}
-              <h3 className="text-xl font-bold mb-3 text-white group-hover:text-[#00b300] transition-colors duration-300">
-                {feature.title}
-              </h3>
+                {/* Card Title */}
+                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-[#00b300] transition-colors duration-300">
+                  {feature.title}
+                </h3>
 
-              {/* Card Description */}
-              <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
-                {feature.description}
-              </p>
+                {/* Card Description */}
+                <p className="text-gray-400 text-sm leading-relaxed group-hover:text-gray-300 transition-colors duration-300">
+                  {feature.description}
+                </p>
 
-              {/* Bottom Accent Line */}
-              <div className="mt-6 pt-6 border-t border-white/5 group-hover:border-[#00b300]/20 transition-all duration-300">
-                <span className="text-xs font-semibold text-gray-500 group-hover:text-[#00b300] transition-colors duration-300">
-                  Learn More →
-                </span>
-              </div>
-            </motion.div>
+                {/* Bottom Accent Line */}
+                <div className="mt-6 pt-6 border-t border-white/5 group-hover:border-[#00b300]/20 transition-all duration-300">
+                  <span className="text-xs font-semibold text-gray-500 group-hover:text-[#00b300] transition-colors duration-300">
+                    Learn More →
+                  </span>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </motion.div>
       </div>
